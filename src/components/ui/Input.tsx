@@ -26,7 +26,7 @@ export const Input = ({ placeholder, password, filled, value, icon, onChange, on
             className={`
                 flex items-center h-12 w-full 
                 rounded-3xl border-gray-600
-                border has-[:focus]:border-white
+                border-2 has-[:focus]:border-white
                 ${ filled && "bg-gray-600" }
             `}
             >

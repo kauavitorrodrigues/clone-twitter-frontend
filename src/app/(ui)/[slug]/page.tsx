@@ -1,7 +1,6 @@
-"use client"
-
 import { Button } from "@/components/ui/Button";
 import { GeneralHeader } from "@/components/ui/GeneralHeader";
+import { ProfileFeed } from "@/components/ui/profile/ProfileFeed";
 import { user } from "@/data/user";
 import { Link as LinkIcon } from "lucide-react";
 import Link from "next/link";
@@ -9,10 +8,6 @@ import Link from "next/link";
 export default function Page() {
 
     const isCurrentUser = true
-
-    const handleFollowPageUser = () => {
-
-    }
 
     return (
 
@@ -59,7 +54,6 @@ export default function Page() {
                             <Button 
                                 label="Seguir"
                                 size="medium"
-                                onClick={handleFollowPageUser}
                             />
                         }
 
@@ -105,6 +99,8 @@ export default function Page() {
                 </div>
 
             </section>
+
+            <ProfileFeed/>
 
         </div>
     )
