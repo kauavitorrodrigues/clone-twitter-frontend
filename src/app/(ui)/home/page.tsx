@@ -1,10 +1,10 @@
-import { Logo } from "@/components/ui/Logo";
+import { HomeHeader } from "@/components/ui/home/HomeHeader";
 
 export default function Page() {
 
 	return (
-		<div className="flex justify-center items-center">
-			<Logo size={80} />
+		<div>
+			<HomeHeader/>
 		</div>
 	)
 
