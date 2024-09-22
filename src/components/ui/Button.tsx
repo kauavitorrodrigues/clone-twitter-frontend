@@ -11,7 +11,7 @@ export const Button = ({ label, onClick, size } : Props ) => {
             className={`
                 flex justify-center items-center cursor-pointer    
                 bg-white rounded-3xl text-black
-                hover:opacity-95 duration-500
+                hover:opacity-95 duration-500 font-semibold
 
                 ${ size === "big" && "h-14 text-lg "}
                 ${ size === "medium" && "h-10 text-md "}

@@ -1,7 +1,7 @@
 "use client"
 
 import { Eye, EyeOff } from "lucide-react"
-import { ReactNode, useState } from "react"
+import { KeyboardEvent, ReactNode, useState } from "react"
 
 type Props = {
     value?: string
@@ -10,11 +10,16 @@ type Props = {
     password?: boolean
     placeholder: string
     onChange?: (newValue: string) => void
+    onEnter?: () => void
 }
 
-export const Input = ({ placeholder, password, filled, value, icon, onChange } : Props ) => {
+export const Input = ({ placeholder, password, filled, value, icon, onChange, onEnter } : Props ) => {
 
     const [ showPassword, setShowPassword ] = useState(false)
+    
+    const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.code.toLowerCase() === "enter" && onEnter ) { onEnter()}
+    }
 
     return (
         <div 
@@ -34,6 +39,7 @@ export const Input = ({ placeholder, password, filled, value, icon, onChange } :
                 placeholder={placeholder}
                 onChange={ e => onChange && onChange(e.target.value) }
                 value={value}
+                onKeyUp={handleKeyUp}
             />
 
             { password && showPassword && 

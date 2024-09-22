@@ -2,6 +2,9 @@ import { NavItem } from "@/components/nav/NavItem"
 import { NavLogout } from "@/components/nav/NavLogout"
 import { NavMyProfile } from "@/components/nav/NavMyProfile"
 import { Logo } from "@/components/ui/Logo"
+import { RecommendationArea } from "@/components/ui/recommendations/RecommendationArea"
+import { SearchInput } from "@/components/ui/SearchInput"
+import { TrendingArea } from "@/components/ui/trending/TrendingArea"
 import { CircleUserRound, Home } from "lucide-react"
 import { ReactNode } from "react"
 
@@ -41,7 +44,13 @@ export default function Layout({ children } : Props ) {
 
             <section className="flex-1 max-w-lg">{children}</section>
 
-            <aside className="hidden lg:flex flex-col gap-6 sticky top-0 h-fit w-96 px-8 py-6 border-l-2 border-gray-900"></aside>
+            <aside className="hidden lg:flex flex-col gap-6 sticky top-0 h-fit w-96 px-8 py-6 border-l-2 border-gray-800">
+
+                <SearchInput hideOnSearch/>
+                <TrendingArea/>
+                <RecommendationArea/>
+
+            </aside>
 
         </main>
     )
