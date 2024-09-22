@@ -8,9 +8,10 @@ import { useState } from "react"
 
 type Props = {
     tweet: Tweet
+    hideComments?: boolean
 }
 
-export const TweetItem = ({ tweet } : Props ) => {
+export const TweetItem = ({ tweet, hideComments } : Props ) => {
 
     const [ likedTweet, setLikedTweet ] = useState(tweet.liked)
     const [ retweetedTweet, setRetweetedTweet ] = useState(tweet.retweeted)
@@ -69,23 +70,27 @@ export const TweetItem = ({ tweet } : Props ) => {
 
                 <div className="flex mt-6 text-gray-400">
 
-                    <div className="flex-1">
+                    { !hideComments &&
 
-                        <Link href={`/tweet/${tweet.id}`}>
+                        <div className="flex-1">
 
-                            <div className="inline-flex items-center gap-2">
+                            <Link href={`/tweet/${tweet.id}`}>
 
-                                <MessageCircle size={24}/>
+                                <div className="inline-flex items-center gap-2">
 
-                                <div className="text-base"
-                                    >{tweet.commentCount}
+                                    <MessageCircle size={24}/>
+
+                                    <div className="text-base"
+                                        >{tweet.commentCount}
+                                    </div>
+
                                 </div>
 
-                            </div>
+                            </Link>
 
-                        </Link>
+                        </div>     
 
-                    </div>
+                    }
 
                     <div className="flex-1">
 
@@ -119,7 +124,8 @@ export const TweetItem = ({ tweet } : Props ) => {
 
                     </div>
 
-                    <div className="flex-1">
+                    <div 
+                        className={`${!hideComments && "flex-1"}`} >
 
                         <div className="inline-flex items-center gap-2">
 
